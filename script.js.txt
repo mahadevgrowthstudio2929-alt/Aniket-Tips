@@ -1,0 +1,94 @@
+document.addEventListener('DOMContentLoaded', () => {
+
+    // Live Joining Counter
+    const counter = document.getElementById('liveCounter');
+    let value = 1847;
+
+    setInterval(() => {
+        if (Math.random() > 0.5) {
+            value++;
+        }
+        counter.textContent = value.toLocaleString();
+    }, 2500);
+
+
+    // Join Button Pulse Animation
+    const btn = document.querySelector('.join-btn');
+
+    setInterval(() => {
+        btn.animate(
+            [
+                {
+                    transform: "scale(1)",
+                    boxShadow: "0 0 20px #00ffa6"
+                },
+                {
+                    transform: "scale(1.06)",
+                    boxShadow: "0 0 40px #00ffa6"
+                },
+                {
+                    transform: "scale(1)",
+                    boxShadow: "0 0 20px #00ffa6"
+                }
+            ],
+            {
+                duration: 1200,
+                easing: "ease-in-out"
+            }
+        );
+    }, 2200);
+
+
+    // Page Load Animation
+    const container = document.querySelector(".container");
+
+    container.animate(
+        [
+            {
+                opacity: 0,
+                transform: "translateY(30px)"
+            },
+            {
+                opacity: 1,
+                transform: "translateY(0px)"
+            }
+        ],
+        {
+            duration: 900,
+            easing: "ease-out",
+            fill: "forwards"
+        }
+    );
+
+
+    // Floating Feature Cards
+    const cards = document.querySelectorAll(".card");
+
+    cards.forEach((card, index) => {
+
+        setInterval(() => {
+
+            card.animate(
+                [
+                    {
+                        transform: "translateY(0px)"
+                    },
+                    {
+                        transform: "translateY(-5px)"
+                    },
+                    {
+                        transform: "translateY(0px)"
+                    }
+                ],
+                {
+                    duration: 2000,
+                    delay: index * 250,
+                    easing: "ease-in-out"
+                }
+            );
+
+        }, 2500);
+
+    });
+
+});
